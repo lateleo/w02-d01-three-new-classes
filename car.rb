@@ -33,7 +33,6 @@ class Car
   def plate_number=(new_plate_number)
     @plate_number = new_plate_number
   end
-
-  # only one setter, because everything else should stay the same.
+  # Only one setter, because everything else should stay the same.
 
 end

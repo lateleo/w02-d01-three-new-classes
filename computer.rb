@@ -17,8 +17,7 @@ class Computer
   def name=(new_name)
     @name = new_name
   end
-
-  #Only one setter, because everything else doesn't change.
+# Only one setter, because everything else doesn't change.
 
   def operating_system
     @operating_system.dup
