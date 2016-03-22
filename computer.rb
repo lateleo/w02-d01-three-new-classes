@@ -18,7 +18,7 @@ class Computer
     @name = new_name
   end
 
-  #Only one setter, because everything else is a physical property.
+  #Only one setter, because everything else doesn't change.
 
   def operating_system
     @operating_system.dup
