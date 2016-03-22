@@ -24,6 +24,8 @@ class Person
     @ethnicity.dup
   end
 
+# no setters for birthday or ethnicity, because those shouldn't change.
+
   def gender
     @gender.dup
   end

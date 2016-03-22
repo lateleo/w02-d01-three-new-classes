@@ -34,4 +34,6 @@ class Car
     @plate_number = new_plate_number
   end
 
-end  
+  # only one setter, because everything else should stay the same.
+
+end
