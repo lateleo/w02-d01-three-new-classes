@@ -63,6 +63,13 @@ class PersonTest < Minitest::Test
     assert_equal("Art Burtch sold their computer! Bye-bye, Legion!", person.sell_computer)
   end
 
+  def test_sell_computer_accepts_no_name
+    person = Person.new(name: "Art Burtch", birthday: "8/22/1991", address: "922 S 11th St")
+    computer = Computer.new(body_type: "laptop", operating_system: "Mac OS X", cpu_speed: 2.5, memory: 16, disc_space: 512)
+    person.buy_computer(computer)
+    assert_equal("Art Burtch sold their computer!", person.sell_computer)
+  end
+
   def test_sell_computer_rejects_nil
     person = Person.new(name: "Art Burtch", birthday: "8/22/1991", address: "922 S 11th St")
     assert_equal("Art Burtch doesn't have a computer to sell!", person.sell_computer)

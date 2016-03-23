@@ -1,3 +1,4 @@
+require "pry"
 require_relative "computer.rb"
 require_relative "car.rb"
 
@@ -32,7 +33,7 @@ class Person
       computer.owner = nil
       old_name = computer.name
       @computer = nil
-      "#{name} sold their computer! Bye-bye, #{old_name}!"
+      old_name != nil ? "#{name} sold their computer! Bye-bye, #{old_name}!" : "#{name} sold their computer!"
     else
       "#{name} doesn't have a computer to sell!"
     end
@@ -41,7 +42,7 @@ class Person
   def car
     @car
   end
-  
+
   def register_vehicle(car, plate_number)
     if @car == nil
       @car = car
@@ -64,3 +65,5 @@ class Person
   end
 
 end
+
+binding.pry
