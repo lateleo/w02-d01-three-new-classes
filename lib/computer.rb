@@ -2,11 +2,11 @@
 
 class Computer
 
-  attr_accessor :name, :os
-  attr_reader :housing, :cpu_speed, :memory, :disc_space
+  attr_accessor :name,
+  attr_reader :housing, :os, :cpu_speed, :memory, :disc_space
 
-  def initialize (housing:, os:, cpu_speed:, memory:, disc_space:)
-    @name = nil
+  def initialize (housing:, os:, cpu_speed:, memory:, disc_space:, name = nil)
+    @name = name
     @housing = housing
     @os = os
     @cpu_speed = cpu_speed

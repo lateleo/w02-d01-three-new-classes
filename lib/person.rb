@@ -1,6 +1,5 @@
 require "pry"
 require_relative "computer.rb"
-require_relative "car.rb"
 
 class Person
 
@@ -40,31 +39,6 @@ class Person
       "#{name} sold #{@pronoun_gender == 'male' ? 'his' : 'her'} computer! Bye-bye, #{computer_name}!"
     else
       "#{name} doesn't have a computer to sell!"
-    end
-  end
-
-  def car
-    @car
-  end
-
-  def register_vehicle(car, plate_number)
-    if @car == nil
-      @car = car
-      car.plate_number = plate_number
-      car.owner = self
-      "#{name} registered #{@pronoun_gender == 'male' ? 'his' : 'her'} new #{car.make} #{car.model}. Time to hit the road!"
-    else
-      "#{name}'s car is already registered!"
-    end
-  end
-
-  def repaint_car(new_color)
-    if @car != nil
-      old_color = @car.color
-      @car.color = new_color
-      "#{name} repainted #{@pronoun_gender == 'male' ? 'his' : 'her'} car from #{old_color} to #{@car.color}. Lookin' good!"
-    else
-      "#{name} doesn't have a car to paint!"
     end
   end
 
