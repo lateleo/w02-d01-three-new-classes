@@ -28,15 +28,16 @@ class Person
       computer.name = computer_name
       "#{name} bought a new #{computer.housing} with a #{computer.cpu_speed} GHz CPU, #{computer.memory} GB of RAM, and #{computer.disc_space} GB of disc space! Yowzah!"
     else
-      "#{name} already has  computer named '#{computer_name}.' Please choose another name."
+      "#{name} already has a computer named '#{computer_name}'. Please choose another name."
+    end
   end
 
   def sell_computer(computer_name)
-    if @computer != nil
+    if @computers != []
       @computers[@computer_names.index(computer_name)].owner = nil
       @computers.delete_at(@computer_names.index(computer_name))
       @computer_names.delete(computer_name)
-      "#{name} sold #{@pronoun_gender == 'male' ? 'his' : 'hers'} computer! Bye-bye, #{old_name}!"
+      "#{name} sold #{@pronoun_gender == 'male' ? 'his' : 'her'} computer! Bye-bye, #{computer_name}!"
     else
       "#{name} doesn't have a computer to sell!"
     end
@@ -51,7 +52,7 @@ class Person
       @car = car
       car.plate_number = plate_number
       car.owner = self
-      "#{name} registered their new #{car.make} #{car.model}. Time to hit the road!"
+      "#{name} registered #{@pronoun_gender == 'male' ? 'his' : 'her'} new #{car.make} #{car.model}. Time to hit the road!"
     else
       "#{name}'s car is already registered!"
     end
@@ -61,7 +62,7 @@ class Person
     if @car != nil
       old_color = @car.color
       @car.color = new_color
-      "#{name} repainted #{@pronoun_gender == 'male' ? 'his' : 'hers'} car from #{old_color} to #{@car.color}. Lookin' good!"
+      "#{name} repainted #{@pronoun_gender == 'male' ? 'his' : 'her'} car from #{old_color} to #{@car.color}. Lookin' good!"
     else
       "#{name} doesn't have a car to paint!"
     end
@@ -69,4 +70,4 @@ class Person
 
 end
 
-binding.pry
+#binding.pry
