@@ -41,6 +41,13 @@ class Store
     @inventory.delete_at(@inventory.index(computer)) #deletes only the first instance of "computer" if there are multiple in stock
   end
 
+  def require_yes_no(response)
+    while !["yes", "no"].include?(response)
+      puts "Please respond with either 'yes' or 'no'."
+      response = gets.chomp.downcase
+    end
+    response
+  end
 #----------------------------------------------------------------
 # Methods for new customers
 
@@ -50,7 +57,7 @@ class Store
     puts "Birthday: #{@customer_responses[1]}"
     puts "Preferred gender pronouns: #{@customer_responses[2]}"
     puts "Address: #{@customer_responses[3]}"
-    puts "Is that correct?(y/n)."
+    puts "Is that correct?(yes/no)."
   end
 
   def customer_profile_loop
@@ -59,7 +66,8 @@ class Store
       add_response(gets.chomp)
     end
     recall_responses
-    if gets.chomp.downcase == "yes"
+    response = require_yes_no(gets.chomp.downcase)
+    if response == "yes"
       true
     else
       print "Not a problem! Let's start over, shall we? "
@@ -82,20 +90,22 @@ class Store
 
 #------------------------------------------------------------------------------
 
-  def returning_customer(search_name)
+  def search_for_customer(search_name)
     @current_customer = @customer_profiles.select{|profile| profile.name == search_name}.first
   end
 
   def greet_customer
     new_customer = false
-    puts "Hello! Welcome to #{store_name}! Have you shopped with us before?(y/n)"
-    if gets.chomp.downcase == "yes"
+    puts "Hello! Welcome to #{store_name}! Have you shopped with us before?(yes/no)"
+    returning_customer = require_yes_no(gets.chomp.downcase)
+    if returning_customer == "yes"
       print "Welcome back! "
       until @current_customer || new_customer
         puts "Whats your name?"
-        if !returning_customer(gets.chomp)
-          puts "I'm sorry, we don't have anyone by that name. Would you like to try another?(y/n)"
-          new_customer = true if gets.chomp.downcase == "no"
+        if !search_for_customer(gets.chomp)
+          puts "I'm sorry, we don't have anyone by that name. Would you like to try another?(yes/no)"
+          try_again = require_yes_no(gets.chomp.downcase)
+          new_customer = true if try_again == "no"
         end
       end
     else
