@@ -1,5 +1,9 @@
 require_relative "person.rb"
+require_relative "store.rb"
 
-print "Hello! Welcome to the store! Why don't you tell us about yourself? \n"
-get_personal_info
-print "Fantastic! \n \n"
+store = Store.new(store_name: "Jake's Computer Shop")
+
+art = Person.new(name: "Art Burtch", birthday: "8/22/1991", pronoun_gender: "male", address: "922 S 11th St")
+store.add_customer_profile(art)
+
+store.greet_customer
