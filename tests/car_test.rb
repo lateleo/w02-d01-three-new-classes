@@ -10,22 +10,22 @@ class CarTest < Minitest::Test
 
   def test_make_getter
     car = Car.new(make: "Toyota", model: "Camry", year: 2010, color: "red")
-    assert_equal("Toyota" ,car.make)
+    assert_equal("Toyota", car.make)
   end
 
   def test_model_getter
     car = Car.new(make: "Toyota", model: "Camry", year: 2010, color: "red")
-    assert_equal("Camry" ,car.model)
+    assert_equal("Camry", car.model)
   end
 
   def test_year_getter
     car = Car.new(make: "Toyota", model: "Camry", year: 2010, color: "red")
-    assert_equal(2010 ,car.year)
+    assert_equal(2010, car.year)
   end
 
   def test_color_getter
     car = Car.new(make: "Toyota", model: "Camry", year: 2010, color: "red")
-    assert_equal("red" ,car.color)
+    assert_equal("red", car.color)
   end
 
   def test_color_setter
