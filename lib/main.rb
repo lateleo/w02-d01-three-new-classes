@@ -7,3 +7,4 @@ art = Person.new(name: "Art Burtch", birthday: "8/22/1991", pronoun_gender: "mal
 store.add_customer_profile(art)
 
 store.greet_customer
+store.list_options
